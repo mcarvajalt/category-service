@@ -5,7 +5,6 @@ import co.com.pragma.category.domain.model.Category;
 import co.com.pragma.category.domain.spi.ICategoryPersistencePort;
 import org.springframework.stereotype.Component;
 
-@Component
 public class CategoryUseCase implements ICategoryServicePort {
     private final ICategoryPersistencePort categoryPersistencePort;
 

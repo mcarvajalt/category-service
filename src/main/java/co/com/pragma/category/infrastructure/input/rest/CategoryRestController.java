@@ -26,7 +26,11 @@ public class CategoryRestController {
     })
     @PostMapping
     public ResponseEntity<Void> saveCategory(@RequestBody CategoryRequest categoryRequest) {
-        categoryHandler.saveCategory(categoryRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        try{
+            categoryHandler.saveCategory(categoryRequest);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }catch (Exception ex){
+            throw ex;
+        }
     }
 }

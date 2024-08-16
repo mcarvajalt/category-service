@@ -8,7 +8,6 @@ import co.com.pragma.category.infrastructure.out.jpa.repository.ICategoryReposit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
 public class CategoryJpaAdapter implements ICategoryPersistencePort {
     private final ICategoryRepository categoryRepository;
