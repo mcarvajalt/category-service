@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +26,8 @@ public class CategoryRestController {
             @ApiResponse(responseCode = "409", description = "Category already exists", content = @Content)
     })
     @PostMapping
-    public ResponseEntity<Void> saveCategory(@RequestBody CategoryRequest categoryRequest) {
-        try{
-            categoryHandler.saveCategory(categoryRequest);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        }catch (Exception ex){
-            throw ex;
-        }
+    public ResponseEntity<Void> saveCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
+        categoryHandler.saveCategory(categoryRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
